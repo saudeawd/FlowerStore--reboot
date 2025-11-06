@@ -1,0 +1,38 @@
+### GET all flowers
+GET http://localhost:8080/api/flowers
+Accept: application/json
+
+### POST new flower
+POST http://localhost:8080/api/flowers
+Content-Type: application/json
+
+{
+  "flowerType": "ROSE",
+  "color": "RED",
+  "price": 60.0,
+  "sepalLength": 15.0
+}
+
+### Search flowers by price
+GET http://localhost:8080/api/flowers/search?maxPrice=40.0
+Accept: application/json
+
+### Test payment with credit card
+POST http://localhost:8080/api/payment/credit-card
+Content-Type: application/json
+
+{
+  "cardNumber": "1234567812345678",
+  "expiryDate": "12/25",
+  "cvv": "123",
+  "amount": 100.0
+}
+
+### Test PayPal payment
+POST http://localhost:8080/api/payment/paypal
+Content-Type: application/json
+
+{
+  "email": "test@example.com",
+  "amount": 50.0
+}

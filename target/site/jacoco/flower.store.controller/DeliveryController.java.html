@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>DeliveryController.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">flower-store-web</a> &gt; <a href="index.source.html" class="el_package">flower.store.controller</a> &gt; <span class="el_source">DeliveryController.java</span></div><h1>DeliveryController.java</h1><pre class="source lang-java linenums">package flower.store.controller;
+
+import flower.store.delivery.DHLDeliveryStrategy;
+import flower.store.delivery.Delivery;
+import flower.store.delivery.PostDeliveryStrategy;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.Map;
+
+@RestController
+@RequestMapping(&quot;/api/delivery&quot;)
+<span class="nc" id="L12">public class DeliveryController {</span>
+
+    @GetMapping(&quot;/post&quot;)
+    public Map&lt;String, Object&gt; getPostDeliveryInfo() {
+<span class="nc" id="L16">        Delivery delivery = new PostDeliveryStrategy();</span>
+<span class="nc" id="L17">        return Map.of(</span>
+<span class="nc" id="L18">            &quot;method&quot;, delivery.getDeliveryMethod(),</span>
+<span class="nc" id="L19">            &quot;price&quot;, delivery.getDeliveryPrice(),</span>
+            &quot;description&quot;, &quot;Standard post delivery&quot;
+        );
+    }
+
+    @GetMapping(&quot;/dhl&quot;)
+    public Map&lt;String, Object&gt; getDHLDeliveryInfo() {
+<span class="nc" id="L26">        Delivery delivery = new DHLDeliveryStrategy();</span>
+<span class="nc" id="L27">        return Map.of(</span>
+<span class="nc" id="L28">            &quot;method&quot;, delivery.getDeliveryMethod(),</span>
+<span class="nc" id="L29">            &quot;price&quot;, delivery.getDeliveryPrice(),</span>
+            &quot;description&quot;, &quot;Express DHL delivery&quot;
+        );
+    }
+
+    @PostMapping(&quot;/post&quot;)
+    public Map&lt;String, String&gt; schedulePostDelivery(@RequestBody Map&lt;String, String&gt; deliveryDetails) {
+<span class="nc" id="L36">        Delivery delivery = new PostDeliveryStrategy();</span>
+<span class="nc" id="L37">        boolean success = delivery.deliver(deliveryDetails.get(&quot;address&quot;));</span>
+        
+<span class="nc" id="L39">        return Map.of(</span>
+<span class="nc bnc" id="L40" title="All 2 branches missed.">            &quot;status&quot;, success ? &quot;SCHEDULED&quot; : &quot;FAILED&quot;,</span>
+<span class="nc" id="L41">            &quot;method&quot;, delivery.getDeliveryMethod(),</span>
+<span class="nc bnc" id="L42" title="All 2 branches missed.">            &quot;message&quot;, success ? &quot;Delivery scheduled successfully&quot; : &quot;Delivery scheduling failed&quot;</span>
+        );
+    }
+
+    @PostMapping(&quot;/dhl&quot;)
+    public Map&lt;String, String&gt; scheduleDHLDelivery(@RequestBody Map&lt;String, String&gt; deliveryDetails) {
+<span class="nc" id="L48">        Delivery delivery = new DHLDeliveryStrategy();</span>
+<span class="nc" id="L49">        boolean success = delivery.deliver(deliveryDetails.get(&quot;address&quot;));</span>
+        
+<span class="nc" id="L51">        return Map.of(</span>
+<span class="nc bnc" id="L52" title="All 2 branches missed.">            &quot;status&quot;, success ? &quot;SCHEDULED&quot; : &quot;FAILED&quot;,</span>
+<span class="nc" id="L53">            &quot;method&quot;, delivery.getDeliveryMethod(),</span>
+<span class="nc bnc" id="L54" title="All 2 branches missed.">            &quot;message&quot;, success ? &quot;Delivery scheduled successfully&quot; : &quot;Delivery scheduling failed&quot;</span>
+        );
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>
