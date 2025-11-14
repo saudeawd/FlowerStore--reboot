@@ -24,13 +24,10 @@ public class AppUserController {
 
     @PostMapping
     public ResponseEntity<?> createUser(@RequestBody AppUser user) {
-        // Перевірка на унікальність email
         Optional<AppUser> existingUser = appUserRepository.findUserByEmail(user.getEmail());
         if (existingUser.isPresent()) {
             return ResponseEntity.badRequest().body("User with this email already exists");
         }
-
-        // Валідація даних
         if (user.getDob() != null && user.getDob().isAfter(LocalDate.now())) {
             return ResponseEntity.badRequest().body("Date of birth cannot be in the future");
         }
