@@ -1,38 +1,53 @@
-### GET all flowers
-GET http://localhost:8080/api/flowers
+### Get all users
+GET http://localhost:8080/api/users
 Accept: application/json
 
-### POST new flower
-POST http://localhost:8080/api/flowers
+###
+
+### Add new user
+POST http://localhost:8080/api/users
 Content-Type: application/json
 
 {
-  "flowerType": "ROSE",
-  "color": "RED",
-  "price": 60.0,
-  "sepalLength": 15.0
+  "email": "john.doe@example.com",
+  "dob": "2000-01-15"
 }
 
-### Search flowers by price
-GET http://localhost:8080/api/flowers/search?maxPrice=40.0
+###
+
+### Add another user
+POST http://localhost:8080/api/users
+Content-Type: application/json
+
+{
+  "email": "jane.smith@example.com",
+  "dob": "1998-05-20"
+}
+
+###
+
+### Try to add duplicate email (should fail)
+POST http://localhost:8080/api/users
+Content-Type: application/json
+
+{
+  "email": "john.doe@example.com",
+  "dob": "1995-03-10"
+}
+
+###
+
+### Test on Heroku (замініть URL на ваш)
+GET https://flower-store-app.herokuapp.com/api/users
 Accept: application/json
 
-### Test payment with credit card
-POST http://localhost:8080/api/payment/credit-card
+###
+
+### Add user on Heroku
+POST https://flower-store-app.herokuapp.com/api/users
 Content-Type: application/json
 
 {
-  "cardNumber": "1234567812345678",
-  "expiryDate": "12/25",
-  "cvv": "123",
-  "amount": 100.0
-}
-
-### Test PayPal payment
-POST http://localhost:8080/api/payment/paypal
-Content-Type: application/json
-
-{
-  "email": "test@example.com",
-  "amount": 50.0
+  "email": "heroku.user@test.com",
+  "dob": "2001-07-25"
 }

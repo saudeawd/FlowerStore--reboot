@@ -1,3 +1,4 @@
+/Users/anastasialubencuk/Desktop/OOP-Flower-Forever/src/main/java/flower/store/AppUser.java
 /Users/anastasialubencuk/Desktop/OOP-Flower-Forever/src/main/java/flower/store/decorator/BasketDecorator.java
 /Users/anastasialubencuk/Desktop/OOP-Flower-Forever/src/main/java/flower/store/controller/PaymentController.java
 /Users/anastasialubencuk/Desktop/OOP-Flower-Forever/src/main/java/flower/store/Rose.java
@@ -8,12 +9,14 @@
 /Users/anastasialubencuk/Desktop/OOP-Flower-Forever/src/main/java/flower/store/repository/FlowerRepository.java
 /Users/anastasialubencuk/Desktop/OOP-Flower-Forever/src/main/java/flower/store/payment/PayPalPaymentStrategy.java
 /Users/anastasialubencuk/Desktop/OOP-Flower-Forever/src/main/java/flower/store/decorator/RibbonDecorator.java
+/Users/anastasialubencuk/Desktop/OOP-Flower-Forever/src/main/java/flower/store/repository/AppUserRepository.java
 /Users/anastasialubencuk/Desktop/OOP-Flower-Forever/src/main/java/flower/store/payment/CreditCardPaymentStrategy.java
 /Users/anastasialubencuk/Desktop/OOP-Flower-Forever/src/main/java/flower/store/controller/DeliveryController.java
 /Users/anastasialubencuk/Desktop/OOP-Flower-Forever/src/main/java/flower/store/payment/Payment.java
 /Users/anastasialubencuk/Desktop/OOP-Flower-Forever/src/main/java/flower/store/package-info.java
 /Users/anastasialubencuk/Desktop/OOP-Flower-Forever/src/main/java/flower/store/order/FlowerItem.java
 /Users/anastasialubencuk/Desktop/OOP-Flower-Forever/src/main/java/flower/store/FlowerType.java
+/Users/anastasialubencuk/Desktop/OOP-Flower-Forever/src/main/java/flower/store/controller/AppUserController.java
 /Users/anastasialubencuk/Desktop/OOP-Flower-Forever/src/main/java/flower/store/Tulip.java
 /Users/anastasialubencuk/Desktop/OOP-Flower-Forever/src/main/java/flower/store/service/FlowerService.java
 /Users/anastasialubencuk/Desktop/OOP-Flower-Forever/src/main/java/flower/store/order/Order.java
