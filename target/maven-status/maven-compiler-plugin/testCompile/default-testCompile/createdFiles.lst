@@ -2,5 +2,6 @@ flower/store/order/OrderTest.class
 flower/store/payment/PaymentStrategyTest.class
 flower/store/FlowerTest.class
 flower/store/FlowerBucketTest.class
+flower/store/decorator/DecoratorTest.class
 flower/store/package-info.class
 flower/store/delivery/DeliveryStrategyTest.class
